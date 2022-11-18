@@ -16,7 +16,7 @@ constructor(
 
 getHeroes(): Observable<HeroModel[]> {
   const heroes = of(HEROES);
-  this.messagesService.add('mensagens dos services')
+  this.messagesService.add('HeroService: fetched heroes')
   return heroes
 }
 

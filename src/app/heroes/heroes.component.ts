@@ -1,3 +1,4 @@
+import { MessagesService } from './../core/messages.service';
 import { HeroService } from './../core/hero.service';
 import { Component, OnInit } from '@angular/core';
 import { HeroModel } from '../shared/hero.model';
@@ -13,7 +14,8 @@ export class HeroesComponent implements OnInit {
   selectHero?: HeroModel
 
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService,
+    private messagesService: MessagesService
   ) { }
 
   ngOnInit() {
@@ -26,7 +28,8 @@ export class HeroesComponent implements OnInit {
   }
 
   onSelect(hero: HeroModel) {
-    this.selectHero = hero
+    this.selectHero = hero;
+    this.messagesService.add(`HeroesComponent: Selected hero id=${hero.id}`)
   }
 
 }
