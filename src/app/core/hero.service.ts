@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HEROES } from './../mock/mock-heroes';
 import { HeroModel } from './../shared/hero.model';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ import { Injectable } from '@angular/core';
 export class HeroService {
 
 constructor(
-  private messagesService: MessagesService
+  private messagesService: MessagesService,
+  private _http: HttpClient
   ) { }
 
 getHeroes(): Observable<HeroModel[]> {
